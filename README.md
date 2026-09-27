@@ -270,3 +270,23 @@ Upload is a `curl -u $USER:$TOKEN -T <file> $JFROG_URL/artifactory/<repo>/<file>
 | Jenkins | CI/CD automation |
 | JFrog | Artifact repository |
 | GitHub | Source control |
+
+---
+
+## 13. Local Continuous Deployment (optional)
+
+Jenkins runs in Docker (`jenkins-codelab:1.0`, UI on `http://localhost:8081`).
+Its `Deploy to Local` stage copies each green build into `deploy/` on the host
+(mounted as `/deploy` in the container). A host watcher redeploys from there:
+
+```powershell
+# one terminal, leave running:
+powershell -ExecutionPolicy Bypass -File scripts/watch-deploy.ps1
+# stop the deployed app:
+powershell -ExecutionPolicy Bypass -File scripts/stop-deploy.ps1
+```
+
+Demo loop: edit → `git commit` → `git push` → Jenkins polls Git (~2 min),
+builds, deploys to `deploy/` → watcher restarts backend on `:8080` and serves
+the fresh production frontend on `:5173`. Refresh the browser to see the change.
+In-memory files are reset on each redeploy (no database, by design).

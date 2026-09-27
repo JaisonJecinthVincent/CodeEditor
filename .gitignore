@@ -14,6 +14,13 @@ target/
 .env
 *.log
 
+# Local deploy drop folder (Jenkins "Deploy to Local" target + watcher runtime state)
+deploy/*
+!deploy/.gitkeep
+deploy/*.log
+deploy/*.pid
+deploy/frontend-dist/
+
 # IDE
 .idea/
 .vscode/
