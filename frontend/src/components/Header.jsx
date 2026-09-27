@@ -16,7 +16,7 @@ export default function Header({
     <header className="header">
       <div className="brand">
         <span className="brand-logo">{'</>'}</span>
-        <span className="brand-name">CodeLab</span>
+        <span className="brand-name">CodeLab2</span>
       </div>
 
       <div className="header-controls">
