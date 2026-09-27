@@ -1,0 +1,22 @@
+# Node
+node_modules/
+frontend/dist/
+frontend/node/
+npm-debug.log*
+
+# Maven / Java
+target/
+*.class
+*.jar
+!**/src/**/*.jar
+
+# Env / logs
+.env
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
