@@ -67,7 +67,9 @@ while ($true) {
         if (Test-Path $marker) {
             $latest = (Get-Content $marker -Raw).Trim()
             $done = if (Test-Path $state) { (Get-Content $state -Raw).Trim() } else { '' }
-            if ($latest -ne '' -and $latest -ne $done) {
+            $isAppDown = (-not (Get-NetTCPConnection -LocalPort 8080 -State Listen -ErrorAction SilentlyContinue)) -or `
+                         (-not (Get-NetTCPConnection -LocalPort 5173 -State Listen -ErrorAction SilentlyContinue))
+            if ($latest -ne '' -and ($latest -ne $done -or $isAppDown)) {
                 $jar = Join-Path $deploy "codelab-backend-$latest.jar"
                 $zip = Join-Path $deploy "codelab-frontend-$latest.zip"
                 if ((Test-Path $jar) -and (Test-Path $zip)) {

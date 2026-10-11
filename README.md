@@ -105,15 +105,15 @@ Full DevOps flow:
 
 ## 4. Technology Stack
 
-| Component | Purpose |
-|---|---|
-| React + Vite + Monaco | Frontend code editor |
-| Spring Boot 3 + Validation | REST API backend |
-| Java `ConcurrentHashMap` | Temporary in-memory storage |
-| Maven | Build, test and package |
-| Jenkins | CI/CD automation |
-| JFrog Artifactory | Artifact repository |
-| GitHub | Source control |
+| Component                  | Purpose                     |
+| -------------------------- | --------------------------- |
+| React + Vite + Monaco      | Frontend code editor        |
+| Spring Boot 3 + Validation | REST API backend            |
+| Java`ConcurrentHashMap`  | Temporary in-memory storage |
+| Maven                      | Build, test and package     |
+| Jenkins                    | CI/CD automation            |
+| JFrog Artifactory          | Artifact repository         |
+| GitHub                     | Source control              |
 
 No MySQL/Postgres/Mongo/Redis/Kafka/Docker/K8s/Auth/JWT — kept intentionally simple.
 
@@ -174,13 +174,13 @@ Open `http://localhost:5173`.
 
 Base: `http://localhost:8080/api/files`
 
-| Method | Endpoint | Body | Success |
-|---|---|---|---|
-| GET | `/api/files` | – | `200` list of `{name, language}` (+content) |
-| GET | `/api/files/{name}` | – | `200` `{name, language, content}` / `404` |
-| POST | `/api/files` | `{name, language, content}` | `201` / `400` blank / `409` duplicate |
-| PUT | `/api/files/{name}` | `{content, language?}` | `200` / `404` |
-| DELETE | `/api/files/{name}` | – | `204` / `404` |
+| Method | Endpoint              | Body                          | Success                                         |
+| ------ | --------------------- | ----------------------------- | ----------------------------------------------- |
+| GET    | `/api/files`        | –                            | `200` list of `{name, language}` (+content) |
+| GET    | `/api/files/{name}` | –                            | `200` `{name, language, content}` / `404` |
+| POST   | `/api/files`        | `{name, language, content}` | `201` / `400` blank / `409` duplicate     |
+| PUT    | `/api/files/{name}` | `{content, language?}`      | `200` / `404`                               |
+| DELETE | `/api/files/{name}` | –                            | `204` / `404`                               |
 
 Examples:
 
@@ -260,16 +260,16 @@ Upload is a `curl -u $USER:$TOKEN -T <file> $JFROG_URL/artifactory/<repo>/<file>
 
 ## 12. Assignment Mapping
 
-| Component | Purpose |
-|---|---|
-| React | Frontend code editor |
-| Monaco | Code editing experience |
-| Spring Boot | REST API backend |
+| Component        | Purpose                     |
+| ---------------- | --------------------------- |
+| React            | Frontend code editor        |
+| Monaco           | Code editing experience     |
+| Spring Boot      | REST API backend            |
 | Java Collections | Temporary in-memory storage |
-| Maven | Build, test and package |
-| Jenkins | CI/CD automation |
-| JFrog | Artifact repository |
-| GitHub | Source control |
+| Maven            | Build, test and package     |
+| Jenkins          | CI/CD automation            |
+| JFrog            | Artifact repository         |
+| GitHub           | Source control              |
 
 ---
 
